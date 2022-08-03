@@ -3,10 +3,12 @@ const app = express();
 const cors =require('cors');
 app.use(express.json());
 app.use(cors());
+
+
 const db = require('./models');
 
-//const ideaRouter = require('./routes/Ideas');
-//app.use("/ideas", ideaRouter);
+const userRouter = require('./routes/Users');
+app.use("/user", userRouter);
 //const commentRouter = require('./routes/Comments');
 //app.use("/comments", commentRouter);
 

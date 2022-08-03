@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes)=>{
     const Users = sequelize.define("Users", {
-        id: {
-            type: DataTypes.STRING,
-            allowNull:false,
-            primaryKey: true
-        },
+        //id: {
+        //    type: DataTypes.STRING,
+        //    allowNull:false,
+        //    primaryKey: true
+        //},
         name: {
             type: DataTypes.STRING,
             allowNull:false
@@ -15,19 +15,21 @@ module.exports = (sequelize, DataTypes)=>{
         },
         last_login_time: {
             type: DataTypes.DATE,
-            allowNull:false
-        },
-        registration_time: {
-            type: DataTypes.DATE,
-            allowNull:false
+            allowNull:true
         },
         status: {
             type: DataTypes.ENUM,
             values: ['active', 'blocked'],
-            allowNull:false
+            defaultValue: 'active'
         },
-
-    });
+      // timestamps: true,
+       
+    }, 
+    {
+     timestamps: true,
+        createdAt: 'registration_time',
+        updatedAt: false,}
+    )
 
    return Users;
 };
