@@ -14,9 +14,7 @@ router.get('/', async (req, res)=>{
 router.post('/',async (req, res)=>{
     const {username, password, e_mail} =req.body;
     const us=await Users.findOne({where: {username:username}});
-    console.log(us===null);
     if(!us){
-    console.log("strzeli");
     bcrypt.hash(password, 10).then((hash)=>{
         Users.create({
             username: username,
@@ -79,7 +77,7 @@ router.post('/delete', async (req, res)=>{
         await Users.destroy({where:{id:req.body[i]}})
     }
     res.json('success delete');
-    //await Comments.destroy({where:{id:commentId}})
+    
 });
 router.post('/block', async (req, res)=>{
     let len=Object.keys(req.body).length;
@@ -102,16 +100,6 @@ router.post('/unlock', async (req, res)=>{
     }
 });
 
-//router.post('/delete/',async (req, res)=>{
-//    const user =req.body;
-//    await Users.create(user);
-//    res.json(user);
-//});
-//router.post('/active/',async (req, res)=>{
-//    const user =req.body;
-//    await Users.create(user);
-//    res.json(user);
-//});
-//router.post();
+
 
 module.exports = router;
