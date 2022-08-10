@@ -1,5 +1,5 @@
 ﻿# itransitionApp
-Technologies used: Frontend: 
+Technologies used: Frontend: <br/>
 React Backend: <br/>
 Express.js <br/>
 Database: MySQL <br/>
